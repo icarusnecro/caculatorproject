@@ -22,7 +22,7 @@ function clickOperator(operator){
     isEqualClicked = false;
 }
 function clickEqual(){
-    if(isEqualClicked){
+    if(isEqualClicked && isNegativeClicked){
         firstOperand = parseInt(display.value);
     }else
     {
@@ -52,14 +52,19 @@ function clickEqual(){
     }
     display.value = result;
     isEqualClicked = true;
+    if (display.value == "undefined" || display.value == "NaN"){
+        display.value = '';
+    }
+
 }
 function clickReset(){
-    let isOperatorClicked = false;
-    let isEqualClicked = false;
-    let operator1 = '';
-    let firstOperand =undefined;
-    let secondOperand = undefined;
+    isOperatorClicked = false;
+    isEqualClicked = false;
+    operator1 = '';
+    firstOperand =undefined;
+    secondOperand = undefined;
     display.value ='';
+
 }
 function negativeOperand(){
         display.value = -parseInt(display.value);
